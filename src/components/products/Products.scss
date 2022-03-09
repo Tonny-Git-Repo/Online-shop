@@ -1,45 +1,62 @@
-  @import "radius";
-  @import "clr-primary-5";
-  
-  .main {
-    height: 600px;
+@import "clr-black";
+@import "radius";
+@import "transition";
+@import "clr-primary-5";
+@import "clr-white";
+@import "spacing";
+
+.products{
+ .container {
+    position: relative;
+    background: $clr-black;
+    border-radius: $radius;
   }
   img {
     width: 100%;
     display: block;
-    border-radius: $radius;
     object-fit: cover;
+    border-radius: $radius;
+    transition: $transition;
   }
-  .gallery {
+  .link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $clr-primary-5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: $transition;
+    opacity: 0;
+    cursor: pointer;
+    svg {
+      font-size: 1.25rem;
+      color: $clr-white;
+    }
+  }
+  .container:hover img {
+    opacity: 0.5;
+  }
+  .container:hover .link {
+    opacity: 1;
+  }
+  footer {
     margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    column-gap: 1rem;
-    img {
-      height: 100px;
-      cursor: pointer;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .active {
-    box-shadow: 0px 0px 0px 2px $clr-primary-5;
+  footer h5,
+  footer p {
+    margin-bottom: 0;
+    font-weight: 400;
   }
-  @media (max-width: 576px) {
-    .main {
-      height: 300px;
-    }
-    .gallery {
-      img {
-        height: 50px;
-      }
-    }
+  footer p {
+    color: $clr-primary-5;
+    letter-spacing: $spacing;
   }
-  @media (min-width: 992px) {
-    .main {
-      height: 500px;
-    }
-    .gallery {
-      img {
-        height: 75px;
-      }
-    }
-  }
+}

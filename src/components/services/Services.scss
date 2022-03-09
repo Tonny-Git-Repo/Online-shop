@@ -5,10 +5,10 @@
 @import "radius";
 @import "clr-primary-2";
 
-*{
+.services{
     padding: 5rem 0;
     background: $clr-primary-10;
-}
+
 h3,
 h4 {
   color: $clr-primary-1;
@@ -61,10 +61,9 @@ span {
   }
 }
 @media (min-width: 1280px) {
-    *{
-        padding: 0;
-    }
+  padding: 0;
   .section-center {
     transform: translateY(5rem);
   }
+}
 }

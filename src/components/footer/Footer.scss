@@ -2,7 +2,7 @@
 @import "clr-primary-5";
 @import "clr-white";
 
-*{
+.footer{
    height: 5rem;
    display: flex;
    flex-direction: column;
@@ -10,7 +10,7 @@
    align-items: center;
    background: $clr-black;
    text-align: center;
-}
+
 span {
   color: $clr-primary-5;
 }
@@ -25,4 +25,5 @@ h5 {
     *{
         flex-direction: row;
     }
+}
 }

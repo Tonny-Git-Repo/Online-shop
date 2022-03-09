@@ -1,0 +1,9 @@
+export { AboutPage } from './aboutPage/AboutPage';
+export { AuthWrapper } from './authWrapper/AuthWrapper';
+export { CartPage } from './cartPage/CartPage';
+export { CheckoutPage } from './checkoutPage/CheckoutPage';
+export { ErrorPage } from './errorPage/ErrorPage';
+export { HomePage } from './homePage/HomePage';
+export { PrivateRoute } from './privateRoute/PrivateRoute';
+export { ProductPage } from './productPage/ProductPage';
+export { SingleProductPage } from './singleProductPage/SinglePage';

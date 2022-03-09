@@ -2,14 +2,14 @@
 @import "clr-primary-1";
 @import "clr-primary-3";
 @import "transition";
-  *{
+.page-hero{
     background: $clr-primary-10;
     width: 100%;
     min-height: 20vh;
     display: flex;
     align-items: center;
     color: $clr-primary-1;
-  }
+  
   a {
     color: $clr-primary-3;
     padding: 0.5rem;
@@ -18,3 +18,4 @@
   a:hover {
     color: $clr-primary-1;
   }
+}

@@ -1,1 +1,6 @@
-export{}
+export const HomePage: React.FC = () =>{
+
+    return(<>
+    Home Page
+    </>)
+}

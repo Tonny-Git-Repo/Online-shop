@@ -1,15 +1,11 @@
 @import "clr-grey-8";
 @import "radius";
 
-*{
+.cart-total{
     margin-top: 3rem;
     display: flex;
     justify-content: center;
 
-    @media (min-width: 776px) {
-        justify-content: flex-end;
-      }
-}
 article {
   border: 1px solid $clr-grey-8;
   border-radius: $radius;
@@ -33,4 +29,11 @@ h4 {
   margin-top: 1rem;
   text-align: center;
   font-weight: 700;
+}
+
+@media (min-width: 776px) {
+    *{
+        justify-content: flex-end;
+    }
+  }
 }
