@@ -20,11 +20,11 @@ export class Routing{
 export const App: React.FC = (): JSX.Element => {
   return(
     <React.Suspense fallback = {<Loading/>}>
+    <Router>
 
       <NavBar/>
       <SideBar/>
       
-    <Router>
       <Routes>
         <Route path = {`${Routing.HomePage}`} element ={<HomePage/>}/>
         <Route path = {`${Routing.AboutPage}`} element ={<AboutPage/>}/>

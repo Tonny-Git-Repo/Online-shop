@@ -1,22 +1,23 @@
-import React from 'react'
-import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
-export const links = [
+import React from 'react';
+import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
+import { Routing } from '../App';
+/* export const links = [
   {
     id: 1,
     text: 'home',
-    url: '/',
+    url: Routing.HomePage,
   },
   {
     id: 2,
     text: 'about',
-    url: '/about',
+    url: Routing.AboutPage,
   },
   {
     id: 3,
     text: 'products',
-    url: '/products',
+    url: Routing.ProductPage,
   },
-]
+] */
 
 export const services = [
   {
