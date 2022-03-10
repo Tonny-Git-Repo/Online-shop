@@ -13,14 +13,34 @@ import {
   GET_SINGLE_PRODUCT_ERROR,
 } from '../utils/actions'
 
-export interface ProductContextValue{}
-const initialState = {}
 
-const ProductsContext = React.createContext<ProductContextValue>({})
+export interface ProductContextValue{
+    openSideBar: () => void,
+    closeSideBar: () => void
+}
+
+const initialState = {
+    isSideBarOpen: false,
+}
+
+const ProductsContext = React.createContext<ProductContextValue>({
+    openSideBar: () => { },
+    closeSideBar: () => { },
+})
 
 export const ProductsProvider: React.FC = ({ children }) => {
+  const [ state, dispatch ] = useReducer(reducer, initialState)  ;
+
+  const openSideBar = () => {
+      dispatch({ type: SIDEBAR_OPEN});
+  }
+
+  const closeSideBar = () => {
+    dispatch({ type: SIDEBAR_CLOSE});
+  }
+
   return (
-    <ProductsContext.Provider value='products context'>
+    <ProductsContext.Provider value = {{...state,  openSideBar, closeSideBar}}>
       {children}
     </ProductsContext.Provider>
   )
