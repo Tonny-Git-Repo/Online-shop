@@ -1,6 +1,13 @@
-export const featuredProducts: React.FC = () =>{
+import { Link } from "react-router-dom";
+import { useProductsContext } from "../../contexts";
 
-    return(<>
-    hey featuredProducts
-    </>)
+export const FeaturedProducts: React.FC = () =>{
+    function show(){
+    console.log(useProductsContext)
+    }
+    show()
+    //const { featured_products } = useProductsContext
+    return(<div >
+    
+    </div>)
 }

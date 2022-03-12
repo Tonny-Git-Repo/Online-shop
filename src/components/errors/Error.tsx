@@ -1,6 +1,6 @@
 export const Error: React.FC = () =>{
 
-    return(<>
+    return(<section className="error">
       Error
-    </>)
+    </section>)
 }

@@ -1,6 +1,11 @@
+import { FeaturedProducts, Hero, Services, Contact } from "../../components"
+
 export const HomePage: React.FC = () =>{
 
-    return(<>
-    Home Page
-    </>)
+    return(<div>
+      <Hero/>
+      <FeaturedProducts/>
+      <Services/>
+      <Contact/>
+    </div>)
 }

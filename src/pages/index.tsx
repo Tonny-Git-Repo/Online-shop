@@ -7,3 +7,4 @@ export { HomePage } from './homePage/HomePage';
 export { PrivateRoute } from './privateRoute/PrivateRoute';
 export { ProductPage } from './productPage/ProductPage';
 export { SingleProductPage } from './singleProductPage/SinglePage';
+export { PageHero } from './pageHero/PageHero';

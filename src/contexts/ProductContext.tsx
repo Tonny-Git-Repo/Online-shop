@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/ProductReducer'
 import { products_url as url } from '../utils/constants'
+import { ProductGeneralModel } from '../models'
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -16,31 +17,60 @@ import {
 
 export interface ProductContextValue{
     openSideBar: () => void,
-    closeSideBar: () => void
+    closeSideBar: () => void,
+    isSideBarOpen: Boolean,
 }
 
-const initialState = {
+export const initialState = {
     isSideBarOpen: false,
+    products_loading: false,
+    products_error: false,
+    products: [],
+    featured_products: [],
+    hello: "hey"
 }
 
-const ProductsContext = React.createContext<ProductContextValue>({
+const ProductsContext = React.createContext<ProductContextValue >({
     openSideBar: () => { },
     closeSideBar: () => { },
+    isSideBarOpen: true,
 })
 
 export const ProductsProvider: React.FC = ({ children }) => {
+    
   const [ state, dispatch ] = useReducer(reducer, initialState)  ;
 
+  
   const openSideBar = () => {
-      dispatch({ type: SIDEBAR_OPEN});
+      dispatch({ type: SIDEBAR_OPEN , payload: null});
   }
 
   const closeSideBar = () => {
-    dispatch({ type: SIDEBAR_CLOSE});
+    dispatch({ type: SIDEBAR_CLOSE, payload: null});
+  }
+  
+  const fetchData = async (url: string) =>{
+
+      dispatch({ type: GET_PRODUCTS_BEGIN, payload: null})
+     
+      try {
+        const productsRaw = await axios.get(url);
+        const products = productsRaw.data;
+        dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products})
+        console.log(products)
+
+      } catch (error) {
+        dispatch({ type: GET_PRODUCTS_ERROR, payload: null})
+      }
   }
 
+  useEffect(()=>{
+    fetchData(url)
+  },[])
+  
+  
   return (
-    <ProductsContext.Provider value = {{...state,  openSideBar, closeSideBar}}>
+    <ProductsContext.Provider value = {{...state, openSideBar, closeSideBar}}>
       {children}
     </ProductsContext.Provider>
   )

@@ -8,24 +8,24 @@ import { Link } from 'react-router-dom';
 
 
 export const SideBar: React.FC = () =>{
-    const  {  closeSideBar, openSideBar } = useProductsContext();
-    console.log(useProductsContext())
-    const isOpen = true;
+
+    const  { isSideBarOpen, closeSideBar, openSideBar } = useProductsContext();
+    
     return(<div>
-        <aside className={`${isOpen? 'sidebar show-sidebar': 'sidebar'}`}>
+        <aside className={`${isSideBarOpen? 'sidebar show-sidebar': 'sidebar'}`}>
             <div className='sidebar-header'>
                 <img src={ logo } className='logo' alt ='comfy sloth' />
-                <button className='close-btn' >
+                <button className='close-btn'  onClick={closeSideBar}>
                     <FaTimes/>
                 </button>
             </div>
             <ul>
-                <li><Link to={`${Routing.HomePage}`}>Home</Link></li>
-                <li><Link to= {`${Routing.AboutPage}`}>About</Link></li>
-                <li><Link to={`${Routing.ProductPage}`}>Products</Link></li>
-                <li><Link to={`${Routing.CheckoutPage}`}>Checkout</Link></li>
+                <li onClick={closeSideBar}><Link to={`${Routing.HomePage}`}>Home</Link></li>
+                <li onClick={closeSideBar}><Link to= {`${Routing.AboutPage}`}>About</Link></li>
+                <li onClick={closeSideBar}><Link to={`${Routing.ProductPage}`}>Products</Link></li>
+                <li onClick={closeSideBar}><Link to={`${Routing.CheckoutPage}`}>Checkout</Link></li>
             </ul>
-            <CartButtons/>
+            <CartButtons />
         </aside>
     </div>)
 }
