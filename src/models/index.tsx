@@ -9,8 +9,8 @@ export interface ProductGeneralModel {
     company: string,
     description: string,
     category: string,
-    shipping: Boolean,
-    featured: Boolean
+    shipping: boolean,
+    featured: boolean
 }
 
 export type SingleProductModel = {

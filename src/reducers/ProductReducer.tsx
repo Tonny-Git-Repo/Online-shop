@@ -9,8 +9,9 @@ import {
     GET_SINGLE_PRODUCT_ERROR,
   } from '../utils/actions'
 
+  import { ProductContextValue} from '../contexts/ProductContext'
   
-  const products_reducer = (state: { isSideBarOpen: Boolean }, action: { type: string, payload:[] | null}) => {
+  const products_reducer = (state: { isSideBarOpen: boolean }, action: { type: string, payload:[] | null}) => {
 
     switch(action.type){
       case SIDEBAR_OPEN:

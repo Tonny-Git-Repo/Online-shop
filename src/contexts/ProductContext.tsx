@@ -18,25 +18,31 @@ import {
 export interface ProductContextValue{
     openSideBar: () => void,
     closeSideBar: () => void,
-    isSideBarOpen: Boolean,
+    isSideBarOpen: boolean,
+    products_loading: boolean,
+    products: ProductGeneralModel[],
+    featured_products: ProductGeneralModel[]
 }
 
-export const initialState = {
-    isSideBarOpen: false,
-    products_loading: false,
-    products_error: false,
-    products: [],
-    featured_products: [],
-    hello: "hey"
+export const initialState: ProductContextValue = {
+  openSideBar: function (): void {},
+  closeSideBar: function (): void {},
+  isSideBarOpen: false,
+  products_loading: false,
+  products: [],
+  featured_products: [],
 }
 
 const ProductsContext = React.createContext<ProductContextValue >({
     openSideBar: () => { },
     closeSideBar: () => { },
-    isSideBarOpen: true,
+    isSideBarOpen: false,
+    products_loading: false,
+    products: [],
+    featured_products: []
 })
 
-export const ProductsProvider: React.FC = ({ children }) => {
+export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) => {
     
   const [ state, dispatch ] = useReducer(reducer, initialState)  ;
 
@@ -58,7 +64,7 @@ export const ProductsProvider: React.FC = ({ children }) => {
         const products = productsRaw.data;
         dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products})
         console.log(products)
-
+        console.log(state)
       } catch (error) {
         dispatch({ type: GET_PRODUCTS_ERROR, payload: null})
       }
@@ -77,5 +83,6 @@ export const ProductsProvider: React.FC = ({ children }) => {
 }
 // make sure use
 export const useProductsContext = () => {
+  console.log(ProductsContext)
   return useContext(ProductsContext)
 }
