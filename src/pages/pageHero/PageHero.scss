@@ -1,7 +1,5 @@
-@import "clr-primary-10";
-@import "clr-primary-1";
-@import "clr-primary-3";
-@import "transition";
+@import  '../../styling/index.scss' ;
+
 .page-hero{
     background: $clr-primary-10;
     width: 100%;

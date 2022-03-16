@@ -1,3 +1,5 @@
+@import  '../../styling/index.scss' ;
+
 .cart-content{
   .link-container {
     display: flex;
@@ -9,14 +11,14 @@
     border-color: transparent;
     text-transform: capitalize;
     padding: 0.25rem 0.5rem;
-    background: var(--clr-primary-5);
-    color: var(--clr-white);
-    border-radius: var(--radius);
-    letter-spacing: var(--spacing);
+    background: $clr-primary-5;
+    color: $clr-white;
+    border-radius: $radius;
+    letter-spacing: $spacing;
     font-weight: 400;
     cursor: pointer;
   }
   .clear-btn {
-    background: var(--clr-black);
+    background: $clr-black;
   }
 }

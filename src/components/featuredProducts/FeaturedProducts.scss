@@ -1,8 +1,7 @@
-@import "clr-grey-10";
+@import  '../../styling/index.scss' ;
 
 .featured-products{
     background: $clr-grey-10;
-
 .featured {
   margin: 4rem auto;
   display: grid;

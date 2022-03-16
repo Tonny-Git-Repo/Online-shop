@@ -7,7 +7,7 @@ import {
     UPDATE_FILTERS,
     FILTER_PRODUCTS,
     CLEAR_FILTERS,
-  } from '../utils/actions'
+  } from './actions'
   
   const filter_reducer = (state: {}, action: { type: string}) => {
     return state

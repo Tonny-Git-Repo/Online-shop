@@ -5,6 +5,7 @@ import { FaBars } from 'react-icons/fa';
 import { Routing } from '../../App';
 import { CartButtons } from '../cartButtons/CartButtons';
 import { useProductsContext } from '../../contexts';
+import './NavBar.scss'
 
 export const NavBar: React.FC = () =>{
 
@@ -13,14 +14,12 @@ export const NavBar: React.FC = () =>{
     return(<section className='navbar'>
         <div className='nav-center'>
             <div className='nav-header'>
-                <div>
                    <Link to={`${Routing.HomePage}`}>
-                       <img src = { logo} alt = "comfy sloth" />
+                       <img src = { logo } alt = "comfy sloth" />
                    </Link>
-                   <button className='nav-toggle' onClick={openSideBar}>
+                   <button type= "button" className='nav-toggle' onClick={() =>openSideBar()}>
                        <FaBars/>
                     </button>
-                </div>
             </div>
             <ul className='nav-links'>
                 <li><Link to = {`${Routing.HomePage}`}>Home</Link></li>

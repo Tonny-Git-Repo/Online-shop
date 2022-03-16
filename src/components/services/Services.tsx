@@ -1,4 +1,5 @@
 import { services } from "../../utils/constants"
+import './Services.scss'
 
 export const Services: React.FC = () =>{
 
@@ -19,11 +20,11 @@ export const Services: React.FC = () =>{
                 {services.map((service) => {
                     const { id, icon, title, text} = service
                     return(
-                    <div key={id} className='service'>
+                    <article key={id} className='service'>
                         <span className="icon"> { icon }</span>
                         <h4>{title}</h4>
                         <p>{ text }</p>
-                    </div>)
+                    </article>)
                 })}
             </div>
         </div>

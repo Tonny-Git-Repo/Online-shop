@@ -1,6 +1,4 @@
-@import "clr-black";
-@import "clr-primary-5";
-@import "clr-white";
+@import  '../../styling/index.scss' ;
 
 .footer{
    height: 5rem;
@@ -22,8 +20,6 @@ h5 {
   line-height: 1.25;
 }
 @media (min-width: 776px) {
-    *{
-        flex-direction: row;
-    }
+  flex-direction: row;
 }
 }

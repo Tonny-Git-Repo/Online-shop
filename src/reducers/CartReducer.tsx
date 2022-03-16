@@ -4,7 +4,7 @@ import {
     COUNT_CART_TOTALS,
     REMOVE_CART_ITEM,
     TOGGLE_CART_ITEM_AMOUNT,
-  } from '../utils/actions'
+  } from './actions'
   
   const cart_reducer = (state: {}, action:{ type: string}) => { //will define the model of it
     return state

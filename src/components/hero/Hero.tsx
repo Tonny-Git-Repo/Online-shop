@@ -2,6 +2,7 @@ import heroBcg from '../../assets/hero-bcg.jpg'
 import heroBcg2 from '../../assets/hero-bcg-2.jpg'
 import { Link } from 'react-router-dom'
 import { Routing } from '../../App'
+import './Hero.scss'
 
 export const Hero: React.FC = () =>{
 

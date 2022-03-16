@@ -7,23 +7,28 @@ import {
     GET_SINGLE_PRODUCT_BEGIN,
     GET_SINGLE_PRODUCT_SUCCESS,
     GET_SINGLE_PRODUCT_ERROR,
-  } from '../utils/actions'
+  } from './actions'
 
   import { ProductContextValue} from '../contexts/ProductContext'
-  
-  const products_reducer = (state: { isSideBarOpen: boolean }, action: { type: string, payload:[] | null}) => {
+ 
 
+  const products_reducer = (state: ProductContextValue, action: { type: string, payload:[] | null}) => {
+
+    console.log(" in hier " +state.isSideBarOpen)
     switch(action.type){
       case SIDEBAR_OPEN:
-        console.log("Sidebar open");
-        return { ...state, isSidebarOpen: true};
+        state.isSideBarOpen = true
+        console.log(`{in reducer  ${state.isSideBarOpen}}`)
+        return state 
 
       case SIDEBAR_CLOSE:
         console.log(" in false")
-        return { ...state, isSidebarOpen: false};
+        state.isSideBarOpen = false
+        console.log(state)
+        return state ;
 
       case GET_PRODUCTS_BEGIN:
-         return { ...state, products_loading: true};
+         return { ...state, products_loading: true} ;
       
       case GET_PRODUCTS_SUCCESS:
 
@@ -41,6 +46,7 @@ import {
         return {...state, product_loading: false, products: action.payload, featured_products: featuredProducts};
 
       case GET_PRODUCTS_ERROR:
+        console.log("in error reducer")
         return {...state, products_loading: false, products_error: true}
       default:
         console.log("Nothing founded");

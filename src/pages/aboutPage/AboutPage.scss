@@ -1,9 +1,10 @@
-@import "radius";
-@import "clr-grey-5";
+
+@import  '../../styling/index.scss' ;
 
 .about-page{
     display: grid;
     gap: 4rem;
+
   img {
     width: 100%;
     display: block;
@@ -20,9 +21,11 @@
   }
   .title {
     text-align: left;
+    
   }
   .underline {
-    margin-left: 0;
+    float: left;
+    
   }
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;

@@ -1,5 +1,6 @@
 import { Routing } from "../../App";
 import { Link } from "react-router-dom";
+import './ErrorPage.scss'
 
 export const ErrorPage: React.FC = () =>{
 

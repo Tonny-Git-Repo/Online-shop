@@ -1,5 +1,6 @@
 import { PageHero } from "../pageHero/PageHero";
 import aboutImg from '../../assets/hero-bcg.jpg';
+import './AboutPage.scss'
 
 export const AboutPage: React.FC = () =>{
 

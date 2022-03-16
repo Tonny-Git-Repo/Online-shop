@@ -1,4 +1,4 @@
-
+import './Contact.scss'
 export const Contact: React.FC = () =>{
 
     return(<div className="contact"> 

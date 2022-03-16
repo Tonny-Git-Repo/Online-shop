@@ -7,7 +7,7 @@ import {
   TOGGLE_CART_ITEM_AMOUNT,
   CLEAR_CART,
   COUNT_CART_TOTALS,
-} from '../utils/actions'
+} from '../reducers/actions'
 
 const initialState = {}
 export interface CartContextValue{}

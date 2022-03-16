@@ -1,6 +1,7 @@
 export const Loading: React.FC = () =>{
 
-    return(<>
-    hey Loading
-    </>)
+    return(
+    <div className="section section-center">
+        <div className="loading"></div>
+    </div>)
 }

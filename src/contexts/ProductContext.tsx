@@ -12,7 +12,7 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
-} from '../utils/actions'
+} from '../reducers/actions'
 
 
 export interface ProductContextValue{
@@ -20,17 +20,19 @@ export interface ProductContextValue{
     closeSideBar: () => void,
     isSideBarOpen: boolean,
     products_loading: boolean,
-    products: ProductGeneralModel[],
-    featured_products: ProductGeneralModel[]
+    products: ProductGeneralModel[], 
+    featured_products: ProductGeneralModel[],
+    product_error: boolean
 }
 
-export const initialState: ProductContextValue = {
+let initialState: ProductContextValue = {
   openSideBar: function (): void {},
   closeSideBar: function (): void {},
   isSideBarOpen: false,
   products_loading: false,
   products: [],
   featured_products: [],
+  product_error: false
 }
 
 const ProductsContext = React.createContext<ProductContextValue >({
@@ -39,7 +41,8 @@ const ProductsContext = React.createContext<ProductContextValue >({
     isSideBarOpen: false,
     products_loading: false,
     products: [],
-    featured_products: []
+    featured_products: [],
+    product_error: false
 })
 
 export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) => {
@@ -66,6 +69,7 @@ export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) =>
         console.log(products)
         console.log(state)
       } catch (error) {
+        console.log("in error")
         dispatch({ type: GET_PRODUCTS_ERROR, payload: null})
       }
   }
@@ -83,6 +87,5 @@ export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) =>
 }
 // make sure use
 export const useProductsContext = () => {
-  console.log(ProductsContext)
   return useContext(ProductsContext)
 }

@@ -10,7 +10,7 @@ import {
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
-} from '../utils/actions'
+} from '../reducers/actions'
 import { useProductsContext } from './ProductContext'
 
 const initialState = {}

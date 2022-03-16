@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Routing } from "../../App";
+import './PageHero.scss'
 
 export const PageHero: React.FC<{title: string}> = ({title}) =>{
 
