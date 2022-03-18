@@ -9,7 +9,7 @@ import './NavBar.scss'
 
 export const NavBar: React.FC = () =>{
 
-    const { openSideBar } = useProductsContext();
+    const { toggleSideBar } = useProductsContext();
 
     return(<section className='navbar'>
         <div className='nav-center'>
@@ -17,7 +17,7 @@ export const NavBar: React.FC = () =>{
                    <Link to={`${Routing.HomePage}`}>
                        <img src = { logo } alt = "comfy sloth" />
                    </Link>
-                   <button type= "button" className='nav-toggle' onClick={() =>openSideBar()}>
+                   <button type= "button" className='nav-toggle' onClick={() =>toggleSideBar()}>
                        <FaBars/>
                     </button>
             </div>

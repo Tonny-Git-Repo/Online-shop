@@ -5,6 +5,7 @@ import { Footer, Loading, NavBar, SideBar } from './components';
 import { HomePage, SingleProductPage, CartPage, CheckoutPage, ErrorPage, AboutPage, ProductPage, PrivateRoute, AuthWrapper } from './pages';
 
 export class Routing{
+  public static Redirect = "/";
   public static RoutingPrefix = `/my-shop`;
   public static HomePage = `${Routing.RoutingPrefix}/home`;
   public static AboutPage = `${Routing.RoutingPrefix}/about`;
@@ -13,7 +14,7 @@ export class Routing{
   public static CheckoutPage=`${Routing.RoutingPrefix}/checkout`;
   public static ErrorPage= '*'; //`${Routing.RoutingPrefix}/error`;
   public static ProductPage=`${Routing.RoutingPrefix}/product`;
-  public static SingleProduct=`${Routing.RoutingPrefix}/single-product/:id`;
+  public static SingleProduct=`${Routing.RoutingPrefix}/single-product`;
   public static PrivateRoute=`${Routing.RoutingPrefix}/private`;
 }
 
@@ -31,8 +32,9 @@ export const App: React.FC = (): JSX.Element => {
         <Route path = {`${Routing.AuthWrapper}`} element ={<AuthWrapper/>}/>
         <Route path = {`${Routing.CartPage}`} element ={<CartPage/>}/>
         <Route path = {`${Routing.ProductPage}`} element ={<ProductPage/>}/>
-        <Route path = {`${Routing.SingleProduct}`} element ={<SingleProductPage/>}/>
+        <Route path = {`${Routing.SingleProduct}/:id`} element ={<SingleProductPage/>}/>
         <Route path = {`${Routing.CheckoutPage}`} element ={<CheckoutPage/>}/>
+        <Route path = {`${Routing.Redirect}`}  element= {<Navigate to= {`${Routing.HomePage}`}/>} />
         <Route path = {`${Routing.ErrorPage}`} element ={<ErrorPage/>}/>
       </Routes>
     </Router>

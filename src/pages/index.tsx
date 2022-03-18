@@ -6,5 +6,5 @@ export { ErrorPage } from './errorPage/ErrorPage';
 export { HomePage } from './homePage/HomePage';
 export { PrivateRoute } from './privateRoute/PrivateRoute';
 export { ProductPage } from './productPage/ProductPage';
-export { SingleProductPage } from './singleProductPage/SinglePage';
+export { SingleProductPage } from './singleProductPage/SingleProductPage';
 export { PageHero } from './pageHero/PageHero';

@@ -21,5 +21,5 @@ export{ ProductImages } from './productsImages/ProductImage';
 export{ Services } from './services/Services';
 export{ SideBar } from './sideBar/SideBar';
 export{ Sort } from './sort/Sort';
-export{ Starts } from './stars/Stars';
+export{ Stars } from './stars/Stars';
 export{ StripeCheckout } from './stripeCheckout/StripeCheckout';

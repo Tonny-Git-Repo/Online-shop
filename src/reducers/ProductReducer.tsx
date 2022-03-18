@@ -8,30 +8,28 @@ import {
     GET_SINGLE_PRODUCT_SUCCESS,
     GET_SINGLE_PRODUCT_ERROR,
   } from './actions'
+  import { createStore } from 'redux'
 
   import { ProductContextValue} from '../contexts/ProductContext'
  
 
-  const products_reducer = (state: ProductContextValue, action: { type: string, payload:[] | null}) => {
+ export const products_reducer = ( state:ProductContextValue, action: { type: string, payload: [] | null}) => {
 
-    console.log(" in hier " +state.isSideBarOpen)
+    console.log(" in hier " +action.type)
     switch(action.type){
       case SIDEBAR_OPEN:
-        state.isSideBarOpen = true
-        console.log(`{in reducer  ${state.isSideBarOpen}}`)
-        return state 
+        return {...state, SIDEBAR_OPEN:true} as ProductContextValue
 
       case SIDEBAR_CLOSE:
-        console.log(" in false")
-        state.isSideBarOpen = false
-        console.log(state)
-        return state ;
+        //console.log(" in false")
+        return {...state, isSideBarOpen : false} as ProductContextValue
+      
 
-      case GET_PRODUCTS_BEGIN:
-         return { ...state, products_loading: true} ;
+       case GET_PRODUCTS_BEGIN:
+         return { ...state, products_loading: true} as ProductContextValue ;
       
       case GET_PRODUCTS_SUCCESS:
-
+        
         const featured_products = action.payload;
         let featuredProducts = Array()
 
@@ -43,16 +41,27 @@ import {
             }
           })
         }
-        return {...state, product_loading: false, products: action.payload, featured_products: featuredProducts};
+        return {...state, product_loading: false, products: action.payload, featured_products: featuredProducts} as ProductContextValue;
 
       case GET_PRODUCTS_ERROR:
         console.log("in error reducer")
-        return {...state, products_loading: false, products_error: true}
+        return {...state, products_loading: false, products_error: true} as ProductContextValue
+      
+      case GET_SINGLE_PRODUCT_SUCCESS:
+        const singleProduct = action.payload
+        //return {...state, singleProduct:singleProduct, single_product_loading: false} as ProductContextValue
+        return state
+
+      case GET_SINGLE_PRODUCT_BEGIN:
+        return {...state, single_product_loading: true, product_error: false } as ProductContextValue
+
+      case GET_SINGLE_PRODUCT_ERROR:
+          console.log("in error reducer")
+          return {...state, single_products_loading: false, single_products_error: true}  as ProductContextValue
       default:
-        console.log("Nothing founded");
+        console.log(`action ${action.type} not found`);
     }
-    return state
     throw new Error(`No Matching "${action.type}" - action type`)
   }
   
-  export default products_reducer
+   //export const reducer = createStore(products_reducer)

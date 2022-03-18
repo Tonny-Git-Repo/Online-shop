@@ -8,8 +8,9 @@ export const Products: React.FC<{key: string, image:string, name: string, price:
 
     const { image, name, price, id} = props
 
-    console.log(props)
+    console.log("Hier ist the id: "+ id)
     return(<div className='products'>
+        
         <div className='container'>
             <img src={image} alt={name} />
             <Link className='link' to={`${Routing.SingleProduct}/${id}`}>

@@ -6,13 +6,13 @@ import { Loading } from "../loading/Loading";
 import { Products } from "../products/Products";
 
 export const FeaturedProducts: React.FC = () =>{
-    const { products_loading: loading, product_error:error, featured_products:featured } = useProductsContext()
+    const { productsLoading: loading, productError:error, featuredProducts:featured } = useProductsContext()
     if(error){
        return <Error/>
     }
-    /* if(loading){
+     if(loading){
        return <Loading/>
-    } */
+    } 
 
     console.log(featured)
     return(<div className="featured-products section">

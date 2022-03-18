@@ -1,5 +1,5 @@
 import './Stars.scss'
-export const Starts: React.FC = () =>{
+export const Stars: React.FC = () =>{
 
     return(<>
     hey Starts
