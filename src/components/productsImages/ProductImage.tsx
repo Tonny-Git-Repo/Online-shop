@@ -8,12 +8,27 @@ type Image = {
     url: string;
     filename: string;
 };
+type Thumbnail = {
+    height: number,
+    url:string,
+    width: number
+}
+type SingleImage = {
+    filename: string,
+    height: number,
+    id: string,
+    size: number,
+    thumbnails: Thumbnail[],
+    type: string,
+    url:string,
+    width:number
+}
 
 export const ProductImages: React.FC<{
-    imageList: Image[];
+    imageList: SingleImage[];
 }> = (props) => {
 
-    const [currentImage, setCurrentImage] = React.useState<Image | undefined>(() => props.imageList[0]);
+    const [currentImage, setCurrentImage] = React.useState<SingleImage | undefined>(() => props.imageList[0]);
 
     // React.useEffect(() => {
     //     setCurrentImage(props.imageList[0]);
