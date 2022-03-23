@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { products_reducer as reducer} from '../reducers/ProductReducer'
 import { products_url as url } from '../utils/constants'
 import { ProductGeneralModel, SingleProductModel } from '../models'
+import { SingleImage } from '../components/productsImages/ProductImage'
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -29,37 +30,6 @@ export interface ProductContextValue{
     singleProduct: SingleProductModel
 }
 
-
-/* const initialState: ProductContextValue = {
-  openSideBar: function (): void {},
-  closeSideBar: function (): void {},
-  fetchSingleProduct: (url:string) => new Promise(()=>{}),
-  isSideBarOpen: false,
-  products_loading: false,
-  products: [],
-  featured_products: [],
-  product_error: false, 
-  single_product_loading: false,
-  single_product_error: false,
-  single_product: {
-    name : '',
-    price: 0,
-    description: '',
-    stock: 0,
-    stars: 0,
-    reviews: 0,
-    id: '',
-    company: '',
-    images:[],
-    category: '',
-    colors:[],
-    featured: false,
-    shipping:false
-  } 
-}*/
-
-
-
 const ProductsContext = React.createContext<ProductContextValue >({
     toggleSideBar: () => { },
     fetchSingleProduct: (url:string) => new Promise(()=>{}),
@@ -79,15 +49,15 @@ const ProductsContext = React.createContext<ProductContextValue >({
       reviews: 0,
       id: '',
       company: '',
-      images:[],
+      images: Array<SingleImage>(),
       category: '',
-      colors:[],
+      colors: Array<string>(),
       featured: false,
       shipping:false
     }
 })
 
-export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) => {
+export const ProductsProvider: React.FC<ProductContextValue> = React.memo(({ children }) => {
     const [ isSideBarOpen, setIsSideBarOpen ] = useState<boolean>(false)
     const [ productsLoading, setProductsLoading ] = useState<boolean>(false)
     const [ products, setProducts ] = useState<ProductGeneralModel[]>([])
@@ -104,7 +74,7 @@ export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) =>
       reviews: 0,
       id: '',
       company: '',
-      images:[],
+      images: Array<SingleImage>(),
       category: '',
       colors:[],
       featured: false,
@@ -168,7 +138,7 @@ export const ProductsProvider: React.FC<ProductContextValue> = ({ children }) =>
       {children}
     </ProductsContext.Provider>
   )
-}
+});
 // make sure use
 export const useProductsContext = () => {
   return useContext(ProductsContext)

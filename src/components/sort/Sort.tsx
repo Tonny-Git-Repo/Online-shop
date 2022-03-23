@@ -1,7 +1,7 @@
 import './Sort.scss'
 export const Sort: React.FC = () =>{
 
-    return(<>
+    return(<div className='sort'>
     hey Sort
-    </>)
+    </div>)
 }

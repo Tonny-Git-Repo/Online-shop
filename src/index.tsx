@@ -3,16 +3,14 @@ import ReactDOM from 'react-dom';
 import './styling/index.scss';
 import { App } from './App';
 
-import { ProductsProvider } from './contexts/index'
+import { FilterProvider, ProductsProvider } from './contexts/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductsProvider openSideBar={function (): void {
-      throw new Error('Function not implemented.');
-    } } closeSideBar={function (): void {
-      throw new Error('Function not implemented.');
-    } } isSideBarOpen={false} products_loading={false} products={[]} featured_products={[]}>
-       <App />
+    <ProductsProvider >
+      <FilterProvider>
+         <App />
+      </FilterProvider>
     </ProductsProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -13,7 +13,7 @@ export class Routing{
   public static CartPage=`${Routing.RoutingPrefix}/cart`;
   public static CheckoutPage=`${Routing.RoutingPrefix}/checkout`;
   public static ErrorPage= '*'; //`${Routing.RoutingPrefix}/error`;
-  public static ProductPage=`${Routing.RoutingPrefix}/product`;
+  public static ProductPage=`${Routing.RoutingPrefix}/products`;
   public static SingleProduct=`${Routing.RoutingPrefix}/single-product`;
   public static PrivateRoute=`${Routing.RoutingPrefix}/private`;
 }

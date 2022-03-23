@@ -8,16 +8,15 @@ export const Products: React.FC<{key: string, image:string, name: string, price:
 
     const { image, name, price, id} = props
 
-    console.log("Hier ist the id: "+ id)
     return(<div className='products'>
-        
         <div className='container'>
             <img src={image} alt={name} />
             <Link className='link' to={`${Routing.SingleProduct}/${id}`}>
                 <FaSearch/>
             </Link> 
         </div>
-        <footer>
+        <br/>
+        <footer >
             <h5>{name}</h5>
             <p>{formatPrice(price)}</p>
         </footer>

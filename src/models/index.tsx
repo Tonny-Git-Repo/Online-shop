@@ -1,4 +1,5 @@
 import { Url } from "url"
+import { SingleImage } from "../components/productsImages/ProductImage"
 
 export interface ProductGeneralModel {
     id: string,
@@ -20,7 +21,7 @@ export type SingleProductModel = {
     featured: boolean,
     description: string,
     id: string,
-    images: string[],
+    images: Array<SingleImage>,
     name: string,
     price: number,
     reviews: number,

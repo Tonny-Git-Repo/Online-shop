@@ -1,7 +1,7 @@
 import './Filters.scss'
 export const Filters: React.FC = () =>{
 
-    return(<>
+    return(<div className='filters'>
     hey Filters
-    </>)
+    </div>)
 }

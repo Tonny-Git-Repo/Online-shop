@@ -13,7 +13,7 @@ type Thumbnail = {
     url:string,
     width: number
 }
-type SingleImage = {
+export type SingleImage = {
     filename: string,
     height: number,
     id: string,

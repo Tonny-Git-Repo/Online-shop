@@ -8,7 +8,7 @@ export const PageHero: React.FC<{title: string, product: SingleProductModel}> = 
     return(<div className="page-hero">
         <div className= 'section-center'>
             <h3>
-                <Link to ={`${ Routing.HomePage}`} >Home</Link>/{product && <Link to={`${Routing.ProductPage}`}> Products</Link> } / {title}
+                <Link to ={`${ Routing.HomePage}`} >Home</Link>/{product && <Link to={`${Routing.ProductPage}`}> Products / </Link> }  {title}
             </h3>
         </div>
     </div>)
